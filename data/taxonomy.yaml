@@ -16,9 +16,9 @@ taxonomy:
       - key: column
         name: Column
         children:
-          - { key: add-column, name: Add column, page: taxonomy/columns-set/add-column.md }
-          - { key: remove-column, name: Remove column, page: taxonomy/columns-set/remove-column.md }
-          - { key: rename-column, name: Rename column, page: taxonomy/columns-set/rename-column.md }
+          - { key: add-column, name: Add column, page: taxonomy/columns-set/column/add-column.md }
+          - { key: remove-column, name: Remove column, page: taxonomy/columns-set/column/remove-column.md }
+          - { key: rename-column, name: Rename column, page: taxonomy/columns-set/column/rename-column.md }
   - key: column-characteristics
     name: Column characteristics
     page: taxonomy/column-characteristics/index.md

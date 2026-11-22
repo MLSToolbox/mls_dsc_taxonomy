@@ -13,8 +13,8 @@ Changes affecting **the set of columns** that constitute a dataset. Their impact
 
 - [Columns order](columns-order.md)
 - **Column**
-  - [Add column](add-column.md)
-  - [Remove column](remove-column.md)
-  - [Rename column](rename-column.md)
+  - [Add column](column/add-column.md)
+  - [Remove column](column/remove-column.md)
+  - [Rename column](column/rename-column.md)
 
 <!-- END GENERATED:types -->

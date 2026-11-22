@@ -26,13 +26,15 @@ nav = [
       "taxonomy/column-characteristics/numerical-column-type.md",
       "taxonomy/column-characteristics/numerical-column-values.md",
     ] },
-    { "Rows set" = [
-      "taxonomy/rows-set/index.md",
-      "taxonomy/rows-set/rows-order.md",
-      "taxonomy/rows-set/add-row.md",
-      "taxonomy/rows-set/remove-row.md",
-    ] },
-    { "Data characteristics" = [
+    { "Columns set" = [
+      "taxonomy/columns-set/index.md",
+      "taxonomy/columns-set/columns-order.md",
+      { "Column" = [
+        "taxonomy/columns-set/column/add-column.md",
+        "taxonomy/columns-set/column/remove-column.md",
+        "taxonomy/columns-set/column/rename-column.md",
+      ] },
+    ] },    { "Data characteristics" = [
       "taxonomy/data-characteristics/index.md",
       "taxonomy/data-characteristics/missings.md",
       "taxonomy/data-characteristics/correlation.md",
