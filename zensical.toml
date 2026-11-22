@@ -15,9 +15,11 @@ nav = [
     { "Columns set" = [
       "taxonomy/columns-set/index.md",
       "taxonomy/columns-set/columns-order.md",
-      "taxonomy/columns-set/add-column.md",
-      "taxonomy/columns-set/remove-column.md",
-      "taxonomy/columns-set/rename-column.md",
+      { "Column" = [
+        "taxonomy/columns-set/column/add-column.md",
+        "taxonomy/columns-set/column/remove-column.md",
+        "taxonomy/columns-set/column/rename-column.md",
+      ] },
     ] },
     { "Column characteristics" = [
       "taxonomy/column-characteristics/index.md",
