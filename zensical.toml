@@ -2,10 +2,9 @@
 site_name = "Taxonomy of Dataset Changes for ML Pipeline Evolution"
 site_description = "A taxonomy of tabular dataset changes and their implications for ML pipeline evolution."
 site_author = "Abelló, Gómez, López, Ayala"
-# TODO: replace GITHUB_USER / REPO with your GitHub user (or organisation) and repository name
-site_url = "https://GITHUB_USER.github.io/dataset-changes-taxonomy/"
-repo_url = "https://github.com/GITHUB_USER/dataset-changes-taxonomy"
-repo_name = "GITHUB_USER/dataset-changes-taxonomy"
+site_url = "https://MLSToolbox.github.io/dataset-changes-taxonomy/"
+repo_url = "https://github.com/MLSToolbox/mls_dsc_taxonomy"
+repo_name = "MLSToolbox/mls_dsc_taxonomy"
 copyright = "Content licensed under CC BY 4.0"
 
 nav = [
