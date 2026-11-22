@@ -12,10 +12,10 @@ Changes affecting the characteristics of **individual columns without modifying 
 <!-- BEGIN GENERATED:types -->
 
 - **Categorical**
-  - [Categorical column type](categorical-column-type.md)
-  - [Categorical column values](categorical-column-values.md)
+    - [Categorical column type](categorical-column-type.md)
+    - [Categorical column values](categorical-column-values.md)
 - **Numerical**
-  - [Numerical column type](numerical-column-type.md)
-  - [Numerical column values](numerical-column-values.md)
+    - [Numerical column type](numerical-column-type.md)
+    - [Numerical column values](numerical-column-values.md)
 
 <!-- END GENERATED:types -->
