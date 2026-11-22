@@ -130,7 +130,7 @@ def generate():
             out = []
             for n in nodes:
                 label = f"[{n['name']}]({rel(n['page'], dim['page'])})" if n.get("page") else f"**{n['name']}**"
-                out.append("  " * depth + f"- {label}")
+                out.append("    " * depth + f"- {label}")
                 out += bullets(n.get("children", []), depth + 1)
             return out
 
