@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this taxonomy, please cite the paper below."
+title: "A Taxonomy of Dataset Changes for Supporting Machine Learning Pipeline Evolution"
+type: article
+authors:
+  - family-names: Abelló
+    given-names: Alberto
+    affiliation: Universitat Politècnica de Catalunya
+    orcid: "https://orcid.org/0000-0002-3223-2186"
+  - family-names: Gómez
+    given-names: Cristina
+    affiliation: Universitat Politècnica de Catalunya
+    orcid: "https://orcid.org/0000-0002-3872-0439"
+  - family-names: López
+    given-names: Lidia
+    affiliation: Universitat Politècnica de Catalunya
+    orcid: "https://orcid.org/0000-0002-6901-9223"
+  - family-names: Ayala
+    given-names: Claudia
+    affiliation: Universitat Politècnica de Catalunya
+    orcid: "https://orcid.org/0000-0002-6262-3698"
+doi: "10.1007/978-3-032-45954-1_32"
+date-released: "2027-01-01"   # TODO: adjust to the actual publication date
+collection-title: "Product-Focused Software Process Improvement (PROFES 2026), LNCS 17339"
+repository-code: "https://github.com/GITHUB_USER/dataset-changes-taxonomy"
+license: CC-BY-4.0
+keywords:
+  - dataset changes
+  - ML pipeline
+  - changes taxonomy
+  - ML pipeline evolution

@@ -1,0 +1,146 @@
+[project]
+site_name = "Taxonomy of Dataset Changes for ML Pipeline Evolution"
+site_description = "A taxonomy of tabular dataset changes and their implications for ML pipeline evolution."
+site_author = "Abelló, Gómez, López, Ayala"
+# TODO: replace GITHUB_USER / REPO with your GitHub user (or organisation) and repository name
+site_url = "https://GITHUB_USER.github.io/dataset-changes-taxonomy/"
+repo_url = "https://github.com/GITHUB_USER/dataset-changes-taxonomy"
+repo_name = "GITHUB_USER/dataset-changes-taxonomy"
+copyright = "Content licensed under CC BY 4.0"
+
+nav = [
+  { "Home" = "index.md" },
+  { "Taxonomy" = [
+    "taxonomy/index.md",
+    "taxonomy/dataset-metadata/index.md",
+    { "Columns set" = [
+      "taxonomy/columns-set/index.md",
+      "taxonomy/columns-set/columns-order.md",
+      "taxonomy/columns-set/add-column.md",
+      "taxonomy/columns-set/remove-column.md",
+      "taxonomy/columns-set/rename-column.md",
+    ] },
+    { "Column characteristics" = [
+      "taxonomy/column-characteristics/index.md",
+      "taxonomy/column-characteristics/categorical-column-type.md",
+      "taxonomy/column-characteristics/categorical-column-values.md",
+      "taxonomy/column-characteristics/numerical-column-type.md",
+      "taxonomy/column-characteristics/numerical-column-values.md",
+    ] },
+    { "Rows set" = [
+      "taxonomy/rows-set/index.md",
+      "taxonomy/rows-set/rows-order.md",
+      "taxonomy/rows-set/add-row.md",
+      "taxonomy/rows-set/remove-row.md",
+    ] },
+    { "Data characteristics" = [
+      "taxonomy/data-characteristics/index.md",
+      "taxonomy/data-characteristics/missings.md",
+      "taxonomy/data-characteristics/correlation.md",
+      "taxonomy/data-characteristics/data-distribution.md",
+    ] },
+  ] },
+  { "Validation" = [
+    "validation/census-income.md",
+  ] },
+  { "About" = "about.md" },
+]
+
+[project.theme]
+# variant = "classic"
+# custom_dir = "overrides"
+# favicon = "images/favicon.png"
+language = "en"
+features = [
+  "announce.dismiss",
+  # "content.action.edit",
+  # "content.action.view",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.code.select",
+  "content.footnote.tooltips",
+  "content.tabs.link",
+  "content.tooltips",
+  # "header.autohide",
+  # "navigation.expand",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.instant.prefetch",
+  # "navigation.instant.progress",
+  "navigation.path",
+  # "navigation.prune",
+  "navigation.sections",
+  # "navigation.tabs",
+  # "navigation.tabs.sticky",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  # "toc.follow",
+  # "toc.integrate",
+]
+
+# logo = "assets/logo.png"
+
+# [project.theme.icon]
+# logo = "lucide/smile"
+
+# [project.theme.font]
+# text = "Inter"
+# code = "Jetbrains Mono"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to system preference"
+
+# [[project.extra.social]]
+# icon = "fontawesome/brands/github"
+# link = "https://github.com/user/repo"
+
+# [[project.extra.social]]
+# icon = "fontawesome/brands/mastodon"
+# link = "https://fosstodon.org/@user"
+
+[project.markdown_extensions]
+abbr = {}
+admonition = {}
+attr_list = {}
+def_list = {}
+footnotes = {}
+md_in_html = {}
+toc.permalink = true
+pymdownx.arithmatex.generic = true
+pymdownx.betterem = {}
+pymdownx.caret = {}
+pymdownx.details = {}
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.keys = {}
+pymdownx.magiclink = {}
+pymdownx.mark = {}
+pymdownx.smartsymbols = {}
+# pymdownx.snippets.base_path = "includes"
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+pymdownx.tabbed.alternate_style = true
+pymdownx.tabbed.combine_header_slug = true
+pymdownx.tasklist.custom_checkbox = true
+pymdownx.tilde = {}
