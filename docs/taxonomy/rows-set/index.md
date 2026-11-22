@@ -18,7 +18,7 @@ Adding or removing rows modifies the instances available for training, validatio
 
 - [Rows order](rows-order.md)
 - **Row**
-  - [Add row](add-row.md)
-  - [Remove row](remove-row.md)
+  - [Add row](row/add-row.md)
+  - [Remove row](row/remove-row.md)
 
 <!-- END GENERATED:types -->

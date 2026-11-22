@@ -15,26 +15,35 @@ nav = [
     { "Columns set" = [
       "taxonomy/columns-set/index.md",
       "taxonomy/columns-set/columns-order.md",
-      "taxonomy/columns-set/add-column.md",
-      "taxonomy/columns-set/remove-column.md",
-      "taxonomy/columns-set/rename-column.md",
-    ] },
-    { "Column characteristics" = [
-      "taxonomy/column-characteristics/index.md",
-      "taxonomy/column-characteristics/categorical-column-type.md",
-      "taxonomy/column-characteristics/categorical-column-values.md",
-      "taxonomy/column-characteristics/numerical-column-type.md",
-      "taxonomy/column-characteristics/numerical-column-values.md",
-    ] },
-    { "Columns set" = [
-      "taxonomy/columns-set/index.md",
-      "taxonomy/columns-set/columns-order.md",
       { "Column" = [
         "taxonomy/columns-set/column/add-column.md",
         "taxonomy/columns-set/column/remove-column.md",
         "taxonomy/columns-set/column/rename-column.md",
       ] },
-    ] },    { "Data characteristics" = [
+    ] },
+    { "Column characteristics" = [
+      "taxonomy/column-characteristics/index.md",
+      { "Categorical column" = [
+        "taxonomy/column-characteristics/categorical-column/index.md",
+        "taxonomy/column-characteristics/categorical-column/categorical-column-type.md",
+        "taxonomy/column-characteristics/categorical-column/categorical-column-values.md",
+      ] },
+      { "Numerical column" = [
+        "taxonomy/column-characteristics/numerical-column/index.md",
+        "taxonomy/column-characteristics/numerical-column/numerical-column-type.md",
+        "taxonomy/column-characteristics/numerical-column/numerical-column-values.md",
+      ]
+      },
+    ] },
+    { "Rowset" = [
+      "taxonomy/rows-set/index.md",
+      "taxonomy/rows-set/rows-order.md",
+      { "Row" = [
+        "taxonomy/rows-set/row/add-row.md",
+        "taxonomy/rows-set/row/remove-row.md",
+      ] },
+    ] },
+    { "Data characteristics" = [
       "taxonomy/data-characteristics/index.md",
       "taxonomy/data-characteristics/missings.md",
       "taxonomy/data-characteristics/correlation.md",
