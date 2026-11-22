@@ -24,12 +24,12 @@ nav = [
     { "Column characteristics" = [
       "taxonomy/column-characteristics/index.md",
       { "Categorical column" = [
-        "taxonomy/column-characteristics/categorical/categorical-column/categorical-column-type.md",
-        "taxonomy/column-characteristics/categorical/categorical-column/categorical-column-values.md",
+        "taxonomy/column-characteristics/categorical/categorical-column-type.md",
+        "taxonomy/column-characteristics/categorical/categorical-column-values.md",
       ] },
       { "Numerical column" = [
-        "taxonomy/column-characteristics/numerical/numerical-column/numerical-column-type.md",
-        "taxonomy/column-characteristics/numerical/numerical-column/numerical-column-values.md",
+        "taxonomy/column-characteristics/numerical/numerical-column-type.md",
+        "taxonomy/column-characteristics/numerical/numerical-column-values.md",
       ] },
     ] },
     { "Rows set" = [

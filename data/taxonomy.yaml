@@ -26,13 +26,13 @@ taxonomy:
       - key: categorical
         name: Categorical
         children:
-          - { key: categorical-column-type, name: Categorical column type, page: taxonomy/column-characteristics/categorical-column-type.md }
-          - { key: categorical-column-values, name: Categorical column values, page: taxonomy/column-characteristics/categorical-column-values.md }
+          - { key: categorical-column-type, name: Categorical column type, page: taxonomy/column-characteristics/categorical/categorical-column-type.md }
+          - { key: categorical-column-values, name: Categorical column values, page: taxonomy/column-characteristics/categorical/categorical-column-values.md }
       - key: numerical
         name: Numerical
         children:
-          - { key: numerical-column-type, name: Numerical column type, page: taxonomy/column-characteristics/numerical-column-type.md }
-          - { key: numerical-column-values, name: Numerical column values, page: taxonomy/column-characteristics/numerical-column-values.md }
+          - { key: numerical-column-type, name: Numerical column type, page: taxonomy/column-characteristics/numerical/numerical-column-type.md }
+          - { key: numerical-column-values, name: Numerical column values, page: taxonomy/column-characteristics/numerical/numerical-column-values.md }
   - key: rows-set
     name: Rows set
     page: taxonomy/rows-set/index.md
