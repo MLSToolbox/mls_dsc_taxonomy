@@ -36,13 +36,13 @@ taxonomy:
   - key: rows-set
     name: Rows set
     page: taxonomy/rows-set/index.md
-    children:
+    children: 
       - { key: rows-order, name: Rows order, page: taxonomy/rows-set/rows-order.md }
       - key: row
         name: Row
         children:
-          - { key: add-row, name: Add row, page: taxonomy/rows-set/add-row.md }
-          - { key: remove-row, name: Remove row, page: taxonomy/rows-set/remove-row.md }
+          - { key: add-row, name: Add row, page: taxonomy/rows-set/row/add-row.md }
+          - { key: remove-row, name: Remove row, page: taxonomy/rows-set/row/remove-row.md }
   - key: data-characteristics
     name: Data characteristics
     page: taxonomy/data-characteristics/index.md
