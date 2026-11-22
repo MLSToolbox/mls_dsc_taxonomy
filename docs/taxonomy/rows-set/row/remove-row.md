@@ -1,6 +1,6 @@
 # Remove row
 
-*Dimension: [Rows set](index.md)*
+*Dimension: [Rows set](../index.md)*
 
 ## What changes
 

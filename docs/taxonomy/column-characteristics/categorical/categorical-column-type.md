@@ -1,6 +1,6 @@
 # Categorical column type
 
-*Dimension: [Column characteristics](index.md)*
+*Dimension: [Column characteristics](../index.md)*
 
 ## What changes
 

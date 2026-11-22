@@ -1,6 +1,6 @@
 # Numerical column values
 
-*Dimension: [Column characteristics](index.md)*
+*Dimension: [Column characteristics](../index.md)*
 
 ## What changes
 

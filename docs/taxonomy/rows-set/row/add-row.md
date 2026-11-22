@@ -1,6 +1,6 @@
 # Add row
 
-*Dimension: [Rows set](index.md)*
+*Dimension: [Rows set](../index.md)*
 
 ## What changes
 
@@ -8,7 +8,7 @@ New instances are added to the dataset.
 
 ## Pipeline implications
 
-Modifies the instances available for training, validation or testing. The effect depends on what is added (see the [table of affected rows](index.md)), for example outliers or duplicates.
+Modifies the instances available for training, validation or testing. The effect depends on what is added (see the [table of affected rows](../index.md)), for example outliers or duplicates.
 
 ## Typical adaptation
 

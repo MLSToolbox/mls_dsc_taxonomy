@@ -1,6 +1,6 @@
 # Add column
 
-*Dimension: [Columns set](index.md)*
+*Dimension: [Columns set](../index.md)*
 
 ## What changes
 
