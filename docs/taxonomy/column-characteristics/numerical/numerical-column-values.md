@@ -18,11 +18,3 @@ Scale and distribution changes affect feature scaling and model behaviour. Repre
 Preprocessing steps, feature scaling procedures or model retraining for the first kind; data ingestion or parsing components for the second.
 
 See also: [Categorical column values](categorical-column-values.md).
-
-## Observed in practice
-
-<!-- BEGIN GENERATED:observed -->
-
-Observed in **1 of 9** analysed versions of the [Census Income dataset](../../validation/census-income.md): D8.
-
-<!-- END GENERATED:observed -->
