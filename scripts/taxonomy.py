@@ -87,8 +87,6 @@ def check():
 
 def generate():
     tax = load()
-    versions = ver["versions"]
-    n_ver = len(versions)
 
     # --- taxonomy overview: tree diagram and index ---------------------------------
     lines, ids = ["```mermaid", "flowchart LR", '    root(["Dataset changes"])'], {}
