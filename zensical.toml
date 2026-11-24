@@ -13,7 +13,10 @@ nav = [
   { "Taxonomy" = [
     # BEGIN GENERATED:nav
     "taxonomy/index.md",
-    "taxonomy/associated-metadata.md",
+    { "Metadata" = [
+      "taxonomy/metadata/index.md",
+      "taxonomy/metadata/associated-metadata.md",
+    ] },
     { "Schema" = [
       "taxonomy/schema/index.md",
       { "Columns set" = [
@@ -167,3 +170,4 @@ pymdownx.tabbed.alternate_style = true
 pymdownx.tabbed.combine_header_slug = true
 pymdownx.tasklist.custom_checkbox = true
 pymdownx.tilde = {}
+
