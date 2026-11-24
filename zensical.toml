@@ -47,9 +47,6 @@ nav = [
       "taxonomy/data-characteristics/data-distribution.md",
     ] },
   ] },
-  { "Validation" = [
-    "validation/census-income.md",
-  ] },
   { "About" = "about.md" },
 ]
 
