@@ -15,11 +15,3 @@ Encoders trained on the previous categories may fail or silently mis-encode unse
 Update encoding strategies, validation rules or model inputs.
 
 See also: [Numerical column values](numerical-column-values.md).
-
-## Observed in practice
-
-<!-- BEGIN GENERATED:observed -->
-
-Observed in **5 of 9** analysed versions of the [Census Income dataset](../../validation/census-income.md): D3, D4, D7, D8, D9.
-
-<!-- END GENERATED:observed -->
