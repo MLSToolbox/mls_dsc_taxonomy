@@ -7,13 +7,12 @@ As ML repositories such as Hugging Face grow, datasets are republished, forked a
 <div class="grid cards" markdown>
 
 - :lucide-network: **[Explore the taxonomy](taxonomy/index.md)**
-   
-   Four dimensions (Metadata, Schema, Instances, Storage), eighteen change types, plus associated metadata.
+
+    Four dimensions (Metadata, Schema, Instances, Storage) and nineteen change types.
 
 - :lucide-quote: **[How to cite](about.md#how-to-cite)**
-   
-   Reference the paper and this website.
 
+    Reference the paper and this website.
 </div>
 
 ## At a glance
