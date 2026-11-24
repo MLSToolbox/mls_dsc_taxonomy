@@ -11,11 +11,14 @@ Dimensions are divided into **categories** (for example *Columns set*), and cate
 
 <!-- BEGIN GENERATED:tree -->
 
+
 ```mermaid
 flowchart LR
     root(["Dataset differences"])
     n0["Metadata"]
     root --> n0
+    n1["Associated metadata"]
+    n0 --> n1
     n2["Schema"]
     root --> n2
     n3["Columns set"]
@@ -77,6 +80,7 @@ flowchart LR
     n31["Vertical"]
     n29 --> n31
 ```
+
 
 <!-- END GENERATED:tree -->
 
