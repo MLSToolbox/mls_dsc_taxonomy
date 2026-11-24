@@ -15,11 +15,3 @@ Modifies the instances available for training, validation or testing. The effect
 Data preparation procedures, sampling strategies, model retraining or evaluation processes.
 
 See also: [Remove row](remove-row.md), [Data distribution](../data-characteristics/data-distribution.md).
-
-## Observed in practice
-
-<!-- BEGIN GENERATED:observed -->
-
-Observed in **1 of 9** analysed versions of the [Census Income dataset](../../validation/census-income.md): D7.
-
-<!-- END GENERATED:observed -->
