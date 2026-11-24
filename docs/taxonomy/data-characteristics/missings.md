@@ -13,11 +13,3 @@ May directly affect pipeline execution, for example when a step does not accept 
 ## Typical adaptation
 
 Data validation or cleaning steps (imputation, filtering, validation rules).
-
-## Observed in practice
-
-<!-- BEGIN GENERATED:observed -->
-
-Observed in **1 of 9** analysed versions of the [Census Income dataset](../../validation/census-income.md): D9.
-
-<!-- END GENERATED:observed -->
