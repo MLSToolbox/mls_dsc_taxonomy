@@ -13,11 +13,3 @@ Alters the relationships among variables, which may invalidate assumptions made 
 ## Typical adaptation
 
 Feature engineering strategies, feature selection mechanisms and model assumptions.
-
-## Observed in practice
-
-<!-- BEGIN GENERATED:observed -->
-
-Observed in **1 of 9** analysed versions of the [Census Income dataset](../../validation/census-income.md): D9.
-
-<!-- END GENERATED:observed -->
