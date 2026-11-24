@@ -117,6 +117,8 @@ def generate():
                 out.append("    " * depth + f"- {label}")
                 out += bullets(n.get("children", []), depth + 1)
             return out
+        replace_block(dim["page"], "types", "\n".join(bullets(dim["children"])))
+    print("Generated blocks updated.")
     return 0
 
 
