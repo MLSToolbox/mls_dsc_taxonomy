@@ -10,10 +10,6 @@ As ML repositories such as Hugging Face grow, datasets are republished, forked a
 
     Five dimensions, fifteen elementary change types.
 
-- :lucide-clipboard-check: **[See the validation](validation/census-income.md)**
-
-    Changes found across nine versions of the Census Income dataset.
-
 - :lucide-quote: **[How to cite](about.md#how-to-cite)**
 
     Reference the paper and this website.
@@ -35,6 +31,4 @@ As ML repositories such as Hugging Face grow, datasets are republished, forked a
 
 ## Machine-readable data
 
-The taxonomy and the validation table are available as YAML for reuse:
-[`data/taxonomy.yaml`](https://github.com/GITHUB_USER/dataset-changes-taxonomy/blob/main/data/taxonomy.yaml) and
-[`data/census-income-versions.yaml`](https://github.com/GITHUB_USER/dataset-changes-taxonomy/blob/main/data/census-income-versions.yaml).
+The taxonomy is available as YAML for reuse: [`data/taxonomy.yaml`](https://github.com/GITHUB_USER/dataset-changes-taxonomy/blob/main/data/taxonomy.yaml).
