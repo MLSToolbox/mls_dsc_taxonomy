@@ -1,58 +1,81 @@
 # Taxonomy overview
 
-The taxonomy organises dataset changes into **five complementary dimensions**. Each change type has its own page, with its definition, its implications for ML pipelines and the adaptation it typically requires.
+The taxonomy characterises the **differences between versions of a tabular dataset** that may affect the ML pipelines that use it. It is organised im the following four **Dimensions**:
+
+- **Metadata**: information that describes the dataset as a whole. It is documented as a [single page](associated-metadata.md).
+- **Schema**: which columns exist and what characteristics they have.
+- **Instances**: which rows are included and which values they hold.
+- **Storage**: how the data are physically stored.
+
+Dimensions are divided into **categories** (for example *Columns set*), and categories into **difference types** (for example *Rename column*). Each difference type has its own page.
 
 <!-- BEGIN GENERATED:tree -->
 
 ```mermaid
 flowchart LR
-    root(["Dataset changes"])
-    n0["Dataset metadata"]
+    root(["Dataset differences"])
+    n0["Metadata"]
     root --> n0
-    n1["Columns set"]
-    root --> n1
-    n2["Columns order"]
-    n1 --> n2
-    n3["Column"]
-    n1 --> n3
-    n4["Add column"]
+    n2["Schema"]
+    root --> n2
+    n3["Columns set"]
+    n2 --> n3
+    n4["Columns order"]
     n3 --> n4
-    n5["Remove column"]
+    n5["Column"]
     n3 --> n5
-    n6["Rename column"]
-    n3 --> n6
-    n7["Column characteristics"]
-    root --> n7
-    n8["Categorical"]
-    n7 --> n8
-    n9["Categorical column type"]
-    n8 --> n9
-    n10["Categorical column values"]
-    n8 --> n10
-    n11["Numerical"]
-    n7 --> n11
-    n12["Numerical column type"]
-    n11 --> n12
-    n13["Numerical column values"]
-    n11 --> n13
-    n14["Rows set"]
-    root --> n14
-    n15["Rows order"]
-    n14 --> n15
-    n16["Row"]
-    n14 --> n16
-    n17["Add row"]
-    n16 --> n17
-    n18["Remove row"]
-    n16 --> n18
-    n19["Data characteristics"]
-    root --> n19
-    n20["Missings"]
-    n19 --> n20
-    n21["Correlation"]
-    n19 --> n21
-    n22["Data distribution"]
-    n19 --> n22
+    n6["Extra column"]
+    n5 --> n6
+    n7["Absent column"]
+    n5 --> n7
+    n8["Rename column"]
+    n5 --> n8
+    n9["Column characteristics"]
+    n2 --> n9
+    n10["Categorical"]
+    n9 --> n10
+    n11["Categorical column type"]
+    n10 --> n11
+    n12["Categorical column values"]
+    n10 --> n12
+    n13["Numerical"]
+    n9 --> n13
+    n14["Numerical column type"]
+    n13 --> n14
+    n15["Numerical column values"]
+    n13 --> n15
+    n16["Numerical column format"]
+    n13 --> n16
+    n17["Instances"]
+    root --> n17
+    n18["Rows set"]
+    n17 --> n18
+    n19["Rows order"]
+    n18 --> n19
+    n20["Row"]
+    n18 --> n20
+    n21["Extra row"]
+    n20 --> n21
+    n22["Absent row"]
+    n20 --> n22
+    n23["Data value"]
+    n17 --> n23
+    n24["Extra missing"]
+    n23 --> n24
+    n25["Absent missing"]
+    n23 --> n25
+    n26["Value update not involving missing"]
+    n23 --> n26
+    n27["Storage"]
+    root --> n27
+    n28["Format"]
+    n27 --> n28
+    n29["Fragmentation"]
+    n27 --> n29
+    n30["Horizontal"]
+    n29 --> n30
+    n31["Vertical"]
+    n29 --> n31
 ```
 
 <!-- END GENERATED:tree -->
@@ -61,27 +84,31 @@ flowchart LR
 
 <!-- BEGIN GENERATED:index -->
 
-| Change type | Dimension |
+| Difference type | Location |
 |---|---|
-| [Dataset metadata](dataset-metadata/index.md) | [Dataset metadata](dataset-metadata/index.md) |
-| [Columns order](columns-set/columns-order.md) | [Columns set](columns-set/index.md) |
-| [Add column](columns-set/add-column.md) | [Columns set](columns-set/index.md) |
-| [Remove column](columns-set/remove-column.md) | [Columns set](columns-set/index.md) |
-| [Rename column](columns-set/rename-column.md) | [Columns set](columns-set/index.md) |
-| [Categorical column type](column-characteristics/categorical-column-type.md) | [Column characteristics](column-characteristics/index.md) |
-| [Categorical column values](column-characteristics/categorical-column-values.md) | [Column characteristics](column-characteristics/index.md) |
-| [Numerical column type](column-characteristics/numerical-column-type.md) | [Column characteristics](column-characteristics/index.md) |
-| [Numerical column values](column-characteristics/numerical-column-values.md) | [Column characteristics](column-characteristics/index.md) |
-| [Rows order](rows-set/rows-order.md) | [Rows set](rows-set/index.md) |
-| [Add row](rows-set/add-row.md) | [Rows set](rows-set/index.md) |
-| [Remove row](rows-set/remove-row.md) | [Rows set](rows-set/index.md) |
-| [Missings](data-characteristics/missings.md) | [Data characteristics](data-characteristics/index.md) |
-| [Correlation](data-characteristics/correlation.md) | [Data characteristics](data-characteristics/index.md) |
-| [Data distribution](data-characteristics/data-distribution.md) | [Data characteristics](data-characteristics/index.md) |
+| [Metadata](metadata/metadata.md) | (metadata/index.md) |
+| [Columns order](schema/columns-set/columns-order.md) | [Schema](schema/index.md) › [Columns set](schema/columns-set/index.md) |
+| [Extra column](schema/columns-set/column/extra-column.md) | [Schema](schema/index.md) › [Columns set](schema/columns-set/index.md) |
+| [Absent column](schema/columns-set/column/absent-column.md) | [Schema](schema/index.md) › [Columns set](schema/columns-set/index.md) |
+| [Rename column](schema/columns-set/column/rename-column.md) | [Schema](schema/index.md) › [Columns set](schema/columns-set/index.md) |
+| [Categorical column type](schema/column-characteristics/categorical/categorical-column-type.md) | [Schema](schema/index.md) › [Column characteristics](schema/column-characteristics/index.md) |
+| [Categorical column values](schema/column-characteristics/categorical/categorical-column-values.md) | [Schema](schema/index.md) › [Column characteristics](schema/column-characteristics/index.md) |
+| [Numerical column type](schema/column-characteristics/numerical/numerical-column-type.md) | [Schema](schema/index.md) › [Column characteristics](schema/column-characteristics/index.md) |
+| [Numerical column values](schema/column-characteristics/numerical/numerical-column-values.md) | [Schema](schema/index.md) › [Column characteristics](schema/column-characteristics/index.md) |
+| [Numerical column format](schema/column-characteristics/numerical/numerical-column-format.md) | [Schema](schema/index.md) › [Column characteristics](schema/column-characteristics/index.md) |
+| [Rows order](instances/rows-set/rows-order.md) | [Instances](instances/index.md) › [Rows set](instances/rows-set/index.md) |
+| [Extra row](instances/rows-set/row/extra-row.md) | [Instances](instances/index.md) › [Rows set](instances/rows-set/index.md) |
+| [Absent row](instances/rows-set/row/absent-row.md) | [Instances](instances/index.md) › [Rows set](instances/rows-set/index.md) |
+| [Extra missing](instances/data-value/extra-missing.md) | [Instances](instances/index.md) › [Data value](instances/data-value/index.md) |
+| [Absent missing](instances/data-value/absent-missing.md) | [Instances](instances/index.md) › [Data value](instances/data-value/index.md) |
+| [Value update not involving missing](instances/data-value/value-update.md) | [Instances](instances/index.md) › [Data value](instances/data-value/index.md) |
+| [Format](storage/format.md) | [Storage](storage/index.md) |
+| [Horizontal](storage/fragmentation/horizontal.md) | [Storage](storage/index.md) › [Fragmentation](storage/fragmentation/index.md) |
+| [Vertical](storage/fragmentation/vertical.md) | [Storage](storage/index.md) › [Fragmentation](storage/fragmentation/index.md) |
 
 <!-- END GENERATED:index -->
 
 ## How each page is organised
 
-- **Dimension pages** define the dimension and list the change types it contains.
-- **Change type pages** describe *what changes*, the *implications for the pipeline*, the *typical adaptation* and where the change was *observed in practice*.
+- **Dimension and category pages** define what they cover and list what they contain.
+- **Change type pages** describe *what changes*, the *implications for the pipeline* and the *typical adaptation*.

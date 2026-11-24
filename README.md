@@ -1,4 +1,4 @@
-# Taxonomy of Dataset Changes for ML Pipeline Evolution
+# Taxonomy of Dataset Differences for ML Pipeline Evolution
 
 Source of the website for the paper:
 Alberto Abelló, Cristina Gómez, Lidia López, and Claudia Ayala. “A Taxonomy of Dataset Changes for Supporting Machine Learning Pipeline Evolution.” PROFES 2026, Lecture Notes in Computer Science, vol. 17339, 2027. https://doi.org/10.1007/978-3-032-45954-1_32
@@ -13,18 +13,19 @@ Built with [Zensical](https://zensical.org) and deployed to GitHub Pages.
 docs/
   index.md, about.md
   taxonomy/
-    index.md                     Overview, tree diagram, index (generated)
-    <dimension>/index.md         One folder per dimension
-    <dimension>/<change-type>.md One page per change type
-  validation/census-income.md    Validation with nine dataset versions
-data/taxonomy.yaml               The taxonomy as structured data
-data/census-income-versions.yaml Table 1 of the paper as structured data
-scripts/taxonomy.py              check / generate
-zensical.toml                    Site configuration and navigation
-.github/workflows/docs.yml       Build and deploy to GitHub Pages
+    index.md                      Overview, tree diagram and index (generated)
+    associated-metadata.md        Closed node: a single page
+    <dimension>/index.md          Schema, Instances, Storage
+    <dimension>/<category>/index.md
+    <dimension>/<category>/[<group>/]<change-type>.md
+data/taxonomy.yaml                The taxonomy as structured data (source of truth)
+templates/change-type.md          Template for a new change type page
+scripts/taxonomy.py               generate / check
+zensical.toml                     Site configuration (the menu is generated)
+.github/workflows/docs.yml        Build and deploy to GitHub Pages
 ```
 
-Change types and dimensions are identified **by name (slug), not by numeric codes**, because the taxonomy may evolve. Names and file paths can be changed freely.
+Dimensions, categories, and difference types are identified **by name (slug), not by numeric codes**, because the taxonomy may evolve. Names and file paths can be changed freely.
 
 ## Local preview
 
@@ -43,15 +44,20 @@ zensical serve          # http://localhost:8000
 
 ## Evolving the taxonomy
 
-**Add a change type**
+The tree diagram, the index, the lists of contents and the **menu** are generated from `data/taxonomy.yaml`. Never edit them by hand: every Markdown page contains `<!-- BEGIN GENERATED:... -->` blocks, and `zensical.toml` contains `# BEGIN GENERATED:nav`.
+
+**Add a difference type**
 
 1. Add it to `data/taxonomy.yaml` (key, name, page).
-2. Create the page by copying an existing one from the same dimension. Keep the `observed` generated block at the end.
-3. Add the page to `nav` in `zensical.toml`.
-4. Run `python scripts/taxonomy.py check` and then `generate`.
+2. Create the page by copying `templates/change-type.md` to the path given in `page`.
+3. Run `python scripts/taxonomy.py generate` and then `python scripts/taxonomy.py check`.
 
-**Rename or move a change type**: change `name`/`page` in the YAML, rename the file, update `nav` and the relative links to it (the build warns about broken links), and run `generate`. Add the new key to `changes` in `data/census-income-versions.yaml` if it was already used there.
+**Add a category or a dimension**: same steps, using the template of a similar page (those with a *Difference types* / *Categories and difference types* section include the `types` block).
 
-**Add a dataset version**: add an entry in `data/census-income-versions.yaml` and run `generate`. If the number of change types per version no longer matches the paper, update `REPORTED_TOTALS` in `scripts/taxonomy.py`.
+**Add a grouping level without a page** (like *Column* or *Categorical*): add a node without `page` in the YAML and put the files of its children in a folder with its name.
+
+**Rename or move a difference category**: change `name`/`page` in the YAML, move the file and run `generate`. Relative links written by hand in the text (the *See also* lines) are not updated; the build warns about broken links.
+
+**Hide a grouping node from the menu**: `nav: false` in the YAML (used for *Dataset*).
 
 Everything between `<!-- BEGIN GENERATED:... -->` and `<!-- END GENERATED:... -->` is rewritten by `generate`; do not edit it by hand.

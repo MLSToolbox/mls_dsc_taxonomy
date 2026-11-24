@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Keep the website consistent with data/*.yaml.
+"""Keep the website consistent with data/taxonomy.yaml.
 
+    python scripts/taxonomy.py generate   # rewrite generated blocks (docs/ and menu)
     python scripts/taxonomy.py check      # validate data, pages and navigation
-    python scripts/taxonomy.py generate   # rewrite the generated blocks in docs/
 
-Generated blocks are delimited in the Markdown files by
-`<!-- BEGIN GENERATED:name -->` ... `<!-- END GENERATED:name -->`.
-Never edit what is inside them by hand.
+Generated parts (never edit them by hand):
+  * in Markdown:  <!-- BEGIN GENERATED:name --> ... <!-- END GENERATED:name -->
+                  (blocks: types, tree, index)
+  * in zensical.toml:  # BEGIN GENERATED:nav ... # END GENERATED:nav
 """
 import os
 import re
@@ -17,10 +18,14 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
+TOML = ROOT / "zensical.toml"
 INDEX = "taxonomy/index.md"
+
+
 def load():
-    tax = yaml.safe_load((ROOT / "data/taxonomy.yaml").read_text())["taxonomy"]
-    return tax
+    d = yaml.safe_load((ROOT / "data/taxonomy.yaml").read_text())
+    return d.get("root", "Dataset differences"), d["taxonomy"]
+
 
 def walk(nodes, parents=()):
     for n in nodes:
@@ -32,9 +37,15 @@ def leaves(tax):
     return [n for n, _ in walk(tax) if not n.get("children")]
 
 
+def page_ancestors(parents):
+    """Ancestors that have a page of their own (groupings are skipped)."""
+    return [p for p in parents if p.get("page")]
+
+
 def rel(page, from_page):
     """Relative link from one docs page to another."""
     return Path(os.path.relpath(DOCS / page, (DOCS / from_page).parent)).as_posix()
+
 
 def replace_block(page, name, content):
     path = DOCS / page
@@ -45,51 +56,73 @@ def replace_block(page, name, content):
     path.write_text(pat.sub(lambda m: f"{m.group(1)}\n\n{content.strip()}\n\n{m.group(2)}", text))
 
 
+def toml_str(s):
+    return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def nav_items(nodes, depth):
+    out, pad = [], "  " * depth
+    for n in nodes:
+        kids = n.get("children", [])
+        if n.get("nav") is False:                      # hidden grouping: promote children
+            out += nav_items(kids, depth)
+        elif not kids:
+            out.append(f"{pad}{toml_str(n['page'])},")
+        else:
+            out.append(f"{pad}{{ {toml_str(n['name'])} = [")
+            if n.get("page"):
+                out.append(f"{pad}  {toml_str(n['page'])},")
+            out += nav_items(kids, depth + 1)
+            out.append(f"{pad}] }},")
+    return out
+
+
 def check():
-    tax = load()
+    _, tax = load()
     errors = []
     keys = [n["key"] for n, _ in walk(tax)]
-    for k in {k for k in keys if keys.count(k) > 1}:
+    for k in sorted({k for k in keys if keys.count(k) > 1}):
         errors.append(f"duplicate key: {k}")
 
-    nav_text = (ROOT / "zensical.toml").read_text()
+    toml = TOML.read_text()
+    if "# BEGIN GENERATED:nav" not in toml:
+        errors.append("zensical.toml has no '# BEGIN GENERATED:nav' / '# END GENERATED:nav' markers")
+
     pages = set()
-    for n, _ in walk(tax):
-        is_leaf = not n.get("children")
-        is_dim = n in tax
-        if is_leaf or is_dim:
-            page = n.get("page")
-            if not page:
-                errors.append(f"{n['key']}: missing `page`")
-                continue
-            pages.add(page)
-            if not (DOCS / page).exists():
-                errors.append(f"{n['key']}: page {page} does not exist")
-            if page not in nav_text:
-                errors.append(f"{n['key']}: page {page} is not in `nav` of zensical.toml")
-            elif (DOCS / page).exists():
-                body = (DOCS / page).read_text()
-                # ------ Dimension pages with children must contain a generated types block. -----
-                if is_dim and n.get("children"):
-                    if "<!-- BEGIN GENERATED:types -->" not in body:
-                        errors.append(f"{page}: missing GENERATED:types block")
+    for n, parents in walk(tax):
+        kids, page = n.get("children"), n.get("page")
+        if not kids and not page:
+            errors.append(f"{n['key']}: change types need a `page`")
+        if not page:
+            continue
+        pages.add(page)
+        path = DOCS / page
+        if not path.exists():
+            errors.append(f"{n['key']}: page {page} does not exist")
+            continue
+        body = path.read_text()
+        if page not in toml:
+            errors.append(f"{n['key']}: {page} is not in the menu (run `generate`)")
+        if kids and "<!-- BEGIN GENERATED:types -->" not in body:
+            errors.append(f"{page}: missing GENERATED:types block")
+
     for f in (DOCS / "taxonomy").rglob("*.md"):
         p = f.relative_to(DOCS).as_posix()
         if p != INDEX and p not in pages:
             errors.append(f"orphan page not in taxonomy.yaml: {p}")
 
-    leaf_keys = {n["key"] for n in leaves(tax)}
-
     for e in errors:
         print("ERROR:", e)
+    if not errors:
+        print(f"OK: {len(leaves(tax))} change types, {len(pages)} pages.")
     return 1 if errors else 0
 
 
 def generate():
-    tax = load()
+    root, tax = load()
 
-    # --- taxonomy overview: tree diagram and index ---------------------------------
-    lines, ids = ["```mermaid", "flowchart LR", '    root(["Dataset changes"])'], {}
+    # --- overview: tree diagram and index -------------------------------------------
+    lines, ids = ["```mermaid", "flowchart LR", f'    root(["{root}"])'], {}
     for i, (n, parents) in enumerate(walk(tax)):
         ids[n["key"]] = f"n{i}"
         lines.append(f'    n{i}["{n["name"]}"]')
@@ -97,26 +130,38 @@ def generate():
     lines.append("```")
     replace_block(INDEX, "tree", "\n".join(lines))
 
-    rows = ["| Change type | Dimension |", "|---|---|"]
-    for dim in tax:
-        for leaf in ([dim] if not dim.get("children") else [n for n, _ in walk(dim["children"]) if not n.get("children")]):
-            rows.append(f"| [{leaf['name']}]({rel(leaf['page'], INDEX)}) | [{dim['name']}]({rel(dim['page'], INDEX)}) |")
+    rows = ["| Change type | Location |", "|---|---|"]
+    for n, parents in walk(tax):
+        if n.get("children"):
+            continue
+        loc = " › ".join(f"[{a['name']}]({rel(a['page'], INDEX)})" for a in page_ancestors(parents)) or "—"
+        rows.append(f"| [{n['name']}]({rel(n['page'], INDEX)}) | {loc} |")
     replace_block(INDEX, "index", "\n".join(rows))
 
-    # --- dimension pages: list of their change types ---------------------------------
-    for dim in tax:
-        if not dim.get("children"):
+    # --- non-leaf pages: list of contents ----------------------------------------------
+    for n, parents in walk(tax):
+        page = n.get("page")
+        if not page:
             continue
+        if n.get("children"):
+            def bullets(nodes, depth=0):
+                out = []
+                for c in nodes:
+                    label = f"[{c['name']}]({rel(c['page'], page)})" if c.get("page") else f"**{c['name']}**"
+                    out.append("    " * depth + f"- {label}")
+                    out += bullets(c.get("children", []), depth + 1)
+                return out
+            replace_block(page, "types", "\n".join(bullets(n["children"])))
 
-        def bullets(nodes, depth=0):
-            out = []
-            for n in nodes:
-                label = f"[{n['name']}]({rel(n['page'], dim['page'])})" if n.get("page") else f"**{n['name']}**"
-                out.append("    " * depth + f"- {label}")
-                out += bullets(n.get("children", []), depth + 1)
-            return out
-        replace_block(dim["page"], "types", "\n".join(bullets(dim["children"])))
-    print("Generated blocks updated.")
+    # --- menu ---------------------------------------------------------------------------
+    items = [f"    {toml_str(INDEX)},"] + nav_items(tax, 2)
+    toml = TOML.read_text()
+    pat = re.compile(r"([ \t]*# BEGIN GENERATED:nav\n).*?([ \t]*# END GENERATED:nav)", re.S)
+    if not pat.search(toml):
+        raise SystemExit("ERROR: zensical.toml has no '# BEGIN GENERATED:nav' / '# END GENERATED:nav' markers")
+    TOML.write_text(pat.sub(lambda m: m.group(1) + "\n".join(items) + "\n" + m.group(2), toml))
+
+    print("Generated blocks and menu updated.")
     return 0
 
 

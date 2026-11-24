@@ -1,52 +1,83 @@
-# Machine-readable version of the taxonomy (Fig. 1 of the paper).
+# Machine-readable version of the taxonomy (figure "Dataset Taxonomy v0.1").
 # Single source of truth for the structure of the site.
-#   - Top-level nodes are the DIMENSIONS of the taxonomy.
-#   - Nodes without `children` are the change types (one page each).
-#   - Nodes with `children` but without `page` are plain groupings.
-# Keys are slugs and may be renamed freely: run `python scripts/taxonomy.py check`.
+#   - A node WITH `page` gets its own page and appears in the menu.
+#   - A node WITHOUT `page` is only a grouping: it appears in the diagram and as a
+#     section in the menu, but has no page of its own.
+#   - `nav: false` hides a grouping node from the menu (its children move up one level).
+#   - Nodes without `children` are the change types.
+# Keys are slugs and may be renamed freely. After editing, run:
+#   python scripts/taxonomy.py generate && python scripts/taxonomy.py check
+root: Dataset differences
 taxonomy:
-  - key: dataset-metadata
-    name: Dataset metadata
-    page: taxonomy/dataset-metadata/index.md
-  - key: columns-set
-    name: Columns set
-    page: taxonomy/columns-set/index.md
+  - key: associated-metadata
+    name: Associated metadata
+    page: taxonomy/associated-metadata.md        # closed node: documented as a single page
+
+  - key: dataset
+    name: Dataset
+    nav: false
     children:
-      - { key: columns-order, name: Columns order, page: taxonomy/columns-set/columns-order.md }
-      - key: column
-        name: Column
+      - key: schema
+        name: Schema
+        page: taxonomy/schema/index.md
         children:
-          - { key: add-column, name: Add column, page: taxonomy/columns-set/column/add-column.md }
-          - { key: remove-column, name: Remove column, page: taxonomy/columns-set/column/remove-column.md }
-          - { key: rename-column, name: Rename column, page: taxonomy/columns-set/column/rename-column.md }
-  - key: column-characteristics
-    name: Column characteristics
-    page: taxonomy/column-characteristics/index.md
-    children:
-      - key: categorical
-        name: Categorical
+          - key: columns-set
+            name: Columns set
+            page: taxonomy/schema/columns-set/index.md
+            children:
+              - { key: columns-order, name: Columns order, page: taxonomy/schema/columns-set/columns-order.md }
+              - key: column
+                name: Column
+                children:
+                  - { key: extra-column, name: Extra column, page: taxonomy/schema/columns-set/column/extra-column.md }
+                  - { key: absent-column, name: Absent column, page: taxonomy/schema/columns-set/column/absent-column.md }
+                  - { key: rename-column, name: Rename column, page: taxonomy/schema/columns-set/column/rename-column.md }
+          - key: column-characteristics
+            name: Column characteristics
+            page: taxonomy/schema/column-characteristics/index.md
+            children:
+              - key: categorical
+                name: Categorical
+                children:
+                  - { key: categorical-column-type, name: Categorical column type, page: taxonomy/schema/column-characteristics/categorical/categorical-column-type.md }
+                  - { key: categorical-column-values, name: Categorical column values, page: taxonomy/schema/column-characteristics/categorical/categorical-column-values.md }
+              - key: numerical
+                name: Numerical
+                children:
+                  - { key: numerical-column-type, name: Numerical column type, page: taxonomy/schema/column-characteristics/numerical/numerical-column-type.md }
+                  - { key: numerical-column-values, name: Numerical column values, page: taxonomy/schema/column-characteristics/numerical/numerical-column-values.md }
+                  - { key: numerical-column-format, name: Numerical column format, page: taxonomy/schema/column-characteristics/numerical/numerical-column-format.md }
+
+      - key: instances
+        name: Instances
+        page: taxonomy/instances/index.md
         children:
-          - { key: categorical-column-type, name: Categorical column type, page: taxonomy/column-characteristics/categorical/categorical-column-type.md }
-          - { key: categorical-column-values, name: Categorical column values, page: taxonomy/column-characteristics/categorical/categorical-column-values.md }
-      - key: numerical
-        name: Numerical
+          - key: rows-set
+            name: Rows set
+            page: taxonomy/instances/rows-set/index.md
+            children:
+              - { key: rows-order, name: Rows order, page: taxonomy/instances/rows-set/rows-order.md }
+              - key: row
+                name: Row
+                children:
+                  - { key: extra-row, name: Extra row, page: taxonomy/instances/rows-set/row/extra-row.md }
+                  - { key: absent-row, name: Absent row, page: taxonomy/instances/rows-set/row/absent-row.md }
+          - key: data-value
+            name: Data value
+            page: taxonomy/instances/data-value/index.md
+            children:
+              - { key: extra-missing, name: Extra missing, page: taxonomy/instances/data-value/extra-missing.md }
+              - { key: absent-missing, name: Absent missing, page: taxonomy/instances/data-value/absent-missing.md }
+              - { key: value-update, name: Value update not involving missing, page: taxonomy/instances/data-value/value-update.md }
+
+      - key: storage
+        name: Storage
+        page: taxonomy/storage/index.md
         children:
-          - { key: numerical-column-type, name: Numerical column type, page: taxonomy/column-characteristics/numerical/numerical-column-type.md }
-          - { key: numerical-column-values, name: Numerical column values, page: taxonomy/column-characteristics/numerical/numerical-column-values.md }
-  - key: rows-set
-    name: Rows set
-    page: taxonomy/rows-set/index.md
-    children: 
-      - { key: rows-order, name: Rows order, page: taxonomy/rows-set/rows-order.md }
-      - key: row
-        name: Row
-        children:
-          - { key: add-row, name: Add row, page: taxonomy/rows-set/row/add-row.md }
-          - { key: remove-row, name: Remove row, page: taxonomy/rows-set/row/remove-row.md }
-  - key: data-characteristics
-    name: Data characteristics
-    page: taxonomy/data-characteristics/index.md
-    children:
-      - { key: missings, name: Missings, page: taxonomy/data-characteristics/missings.md }
-      - { key: correlation, name: Correlation, page: taxonomy/data-characteristics/correlation.md }
-      - { key: data-distribution, name: Data distribution, page: taxonomy/data-characteristics/data-distribution.md }
+          - { key: format, name: Format, page: taxonomy/storage/format.md }
+          - key: fragmentation
+            name: Fragmentation
+            page: taxonomy/storage/fragmentation/index.md
+            children:
+              - { key: horizontal, name: Horizontal, page: taxonomy/storage/fragmentation/horizontal.md }
+              - { key: vertical, name: Vertical, page: taxonomy/storage/fragmentation/vertical.md }
