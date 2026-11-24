@@ -18,16 +18,9 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 INDEX = "taxonomy/index.md"
-VALIDATION = "validation/census-income.md"
-# Expected totals reported in Table 1 of the paper (version -> number of change types).
-REPORTED_TOTALS = {"D1": 3, "D2": 3, "D3": 7, "D4": 7, "D5": 4, "D6": 4, "D7": 5, "D8": 9, "D9": 6}
-
-
 def load():
     tax = yaml.safe_load((ROOT / "data/taxonomy.yaml").read_text())["taxonomy"]
-    ver = yaml.safe_load((ROOT / "data/census-income-versions.yaml").read_text())
-    return tax, ver
-
+    return tax
 
 def walk(nodes, parents=()):
     for n in nodes:
@@ -43,7 +36,6 @@ def rel(page, from_page):
     """Relative link from one docs page to another."""
     return Path(os.path.relpath(DOCS / page, (DOCS / from_page).parent)).as_posix()
 
-
 def replace_block(page, name, content):
     path = DOCS / page
     text = path.read_text()
@@ -54,7 +46,7 @@ def replace_block(page, name, content):
 
 
 def check():
-    tax, ver = load()
+    tax = load()
     errors = []
     keys = [n["key"] for n, _ in walk(tax)]
     for k in {k for k in keys if keys.count(k) > 1}:
@@ -87,22 +79,14 @@ def check():
             errors.append(f"orphan page not in taxonomy.yaml: {p}")
 
     leaf_keys = {n["key"] for n in leaves(tax)}
-    for v in ver["versions"]:
-        unknown = set(v["changes"]) - leaf_keys
-        if unknown:
-            errors.append(f"{v['id']}: unknown change types {sorted(unknown)}")
-        if v["id"] in REPORTED_TOTALS and len(set(v["changes"])) != REPORTED_TOTALS[v["id"]]:
-            errors.append(f"{v['id']}: {len(set(v['changes']))} changes, paper reports {REPORTED_TOTALS[v['id']]}")
 
     for e in errors:
         print("ERROR:", e)
-    if not errors:
-        print(f"OK: {len(leaf_keys)} change types, {len(tax)} dimensions, {len(ver['versions'])} dataset versions.")
     return 1 if errors else 0
 
 
 def generate():
-    tax, ver = load()
+    tax = load()
     versions = ver["versions"]
     n_ver = len(versions)
 
@@ -136,30 +120,6 @@ def generate():
 
         replace_block(dim["page"], "types", "\n".join(bullets(dim["children"])))
 
-    # --- change type pages: where it was observed ------------------------------------
-    for leaf in leaves(tax):
-        seen = [v["id"] for v in versions if leaf["key"] in v["changes"]]
-        link = rel(VALIDATION, leaf["page"])
-        if seen:
-            txt = (f"Observed in **{len(seen)} of {n_ver}** analysed versions of the "
-                   f"[Census Income dataset]({link}): {', '.join(seen)}.")
-        else:
-            txt = f"Not observed in the {n_ver} analysed versions of the [Census Income dataset]({link})."
-        replace_block(leaf["page"], "observed", txt)
-
-    # --- validation page ---------------------------------------------------------------
-    vrows = ["| ID | Version |", "|---|---|"] + [f"| {v['id']} | [{v['name']}]({v['url']}) |" for v in versions]
-    replace_block(VALIDATION, "versions", "\n".join(vrows))
-
-    head = ["Change type", *[v["id"] for v in versions], "Total"]
-    m = ["| " + " | ".join(head) + " |", "|---|" + "---|" * (len(head) - 1)]
-    for leaf in leaves(tax):
-        marks = ["✔" if leaf["key"] in v["changes"] else "" for v in versions]
-        total = sum(1 for x in marks if x)
-        m.append(f"| [{leaf['name']}]({rel(leaf['page'], VALIDATION)}) | " + " | ".join(marks) + f" | {total} |")
-    m.append("| **Total** | " + " | ".join(f"**{len(set(v['changes']))}**" for v in versions) + " | |")
-    replace_block(VALIDATION, "matrix", "\n".join(m))
-    print("Generated blocks updated.")
     return 0
 
 
