@@ -15,11 +15,3 @@ Different ML algorithms and pipeline components rely on specific data representa
 Data preprocessing, feature engineering and model configuration.
 
 See also: [Numerical column type](numerical-column-type.md).
-
-## Observed in practice
-
-<!-- BEGIN GENERATED:observed -->
-
-Observed in **2 of 9** analysed versions of the [Census Income dataset](../../validation/census-income.md): D3, D4.
-
-<!-- END GENERATED:observed -->
