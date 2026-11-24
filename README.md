@@ -14,8 +14,7 @@ docs/
   index.md, about.md
   taxonomy/
     index.md                      Overview, tree diagram and index (generated)
-    associated-metadata.md        Closed node: a single page
-    <dimension>/index.md          Schema, Instances, Storage
+    <dimension>/index.md          Metadata, Schema, Instances, Storage
     <dimension>/<category>/index.md
     <dimension>/<category>/[<group>/]<change-type>.md
 data/taxonomy.yaml                The taxonomy as structured data (source of truth)
