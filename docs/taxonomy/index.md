@@ -115,4 +115,4 @@ flowchart LR
 ## How each page is organised
 
 - **Dimension and category pages** define what they cover and list what they contain.
-- **Change type pages** describe *what changes*, the *implications for the pipeline* and the *typical adaptation*.
+- **Difference type pages** describe *what changes*, the *implications for the pipeline* and the *typical adaptation*.
