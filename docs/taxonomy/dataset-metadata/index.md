@@ -17,11 +17,3 @@ Dataset-level metadata influences both the **selection** and the **operation** o
 
 !!! example "Example"
     A new version of a dataset is published as Parquet instead of CSV. The loader fails before any model code runs, so the fix lives entirely in the **ingestion** step.
-
-## Observed in practice
-
-<!-- BEGIN GENERATED:observed -->
-
-Observed in **9 of 9** analysed versions of the [Census Income dataset](../../validation/census-income.md): D1, D2, D3, D4, D5, D6, D7, D8, D9.
-
-<!-- END GENERATED:observed -->
