@@ -69,10 +69,10 @@ def check():
                 errors.append(f"{n['key']}: page {page} is not in `nav` of zensical.toml")
             elif (DOCS / page).exists():
                 body = (DOCS / page).read_text()
-                block = "observed" if is_leaf else "types"
-                if f"<!-- BEGIN GENERATED:{block} -->" not in body:
-                    errors.append(f"{page}: missing GENERATED:{block} block")
-
+                # ------ Dimension pages with children must contain a generated types block. -----
+                if is_dim and n.get("children"):
+                    if "<!-- BEGIN GENERATED:types -->" not in body:
+                        errors.append(f"{page}: missing GENERATED:types block")
     for f in (DOCS / "taxonomy").rglob("*.md"):
         p = f.relative_to(DOCS).as_posix()
         if p != INDEX and p not in pages:
