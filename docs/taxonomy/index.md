@@ -115,4 +115,4 @@ flowchart LR
 ## How each page is organised
 
 - **Dimension and intermediate category pages** define what they cover and list what they contain.
-- **Category pages (leave)** provide the difference *categoty description*, the *examples of possible implications for the pipeline* and the *typical adaptation*.
+- **Concrete category pages (leave)** provide the difference *categoty description*, the *examples of possible implications for the pipeline* and the *typical adaptation*.
