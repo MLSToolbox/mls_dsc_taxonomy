@@ -7,7 +7,7 @@ The taxonomy characterises the **differences between versions of a tabular datas
 - **Instances**: which rows are included and which values they hold.
 - **Storage**: how the data are physically stored.
 
-Dimensions are divided into **categories** (for example *Columns set*), and categories into **difference types** (for example *Rename column*). Each difference type has its own page.
+Dimensions are divided into **categories** (for example *Columns set*), that can be also divided into **sub-categories** (*Columns order* or *Column*). The concrete categories (not being decomposed, for example *Columns order*) has its own page describing the category.
 
 <!-- BEGIN GENERATED:tree -->
 
@@ -115,4 +115,4 @@ flowchart LR
 ## How each page is organised
 
 - **Dimension and intermediate category pages** define what they cover and list what they contain.
-- **Concrete category pages (leave)** provide the difference *categoty description*, the *examples of possible implications for the pipeline* and the *typical adaptation*.
+- **Concrete category pages (leaves)** provide the difference *categoty description*, the *examples of possible implications for the pipeline* and the *typical adaptation*.
