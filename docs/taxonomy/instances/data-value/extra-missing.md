@@ -1,10 +1,8 @@
 # Extra missing
 
-## What changes
-
 A missing value appears where the reference version has a value: values are replaced by missings.
 
-## Pipeline implications
+## Pipeline implication examples
 
 May directly affect pipeline execution, for example when a step does not accept missing values, and may change the distribution of the affected features.
 

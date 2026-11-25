@@ -1,14 +1,12 @@
 # Numerical column format
 
-## What changes
-
 The way numbers are written changes, while their value stays the same. Examples:
 
 - the **decimal separator** (dot or comma),
 - **standard vs. scientific notation**,
 - the **encoding format** of the numerical values.
 
-## Pipeline implications
+## Pipeline implication examples
 
 The underlying semantics of the data are not affected, but the values may no longer be parsed correctly (for instance, a comma as decimal separator read as a field separator or as text).
 

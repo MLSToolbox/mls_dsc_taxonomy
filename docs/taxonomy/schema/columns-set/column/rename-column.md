@@ -1,10 +1,8 @@
 # Rename column
 
-## What changes
-
 A column keeps its content but changes its name.
 
-## Pipeline implications
+## Pipeline implication examples
 
 Pipelines that access columns **by name** see their feature references invalidated, even though the data itself is the same. Position-based pipelines are unaffected.
 

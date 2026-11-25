@@ -1,10 +1,8 @@
 # Categorical column values
 
-## What changes
-
 The set of values represented in a categorical column changes: categories are **added or removed**, or **mappings are applied**, for instance to anonymise existing values.
 
-## Pipeline implications
+## Pipeline implication examples
 
 Encoders trained on the previous categories may fail or silently mis-encode unseen or missing values.
 

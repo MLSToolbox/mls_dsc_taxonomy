@@ -1,10 +1,8 @@
 # Horizontal
 
-## What changes
-
 The rows of the dataset are physically divided into subsets, or divided differently from the reference version: for example, one file in one version and several files or partitions in another.
 
-## Pipeline implications
+## Pipeline implication examples
 
 A pipeline that reads a single file or path may silently load only part of the data. Loading several parts requires listing them and putting them together.
 

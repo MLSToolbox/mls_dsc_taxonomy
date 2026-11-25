@@ -1,10 +1,8 @@
 # Vertical
 
-## What changes
-
 The columns of the dataset are physically divided into subsets, or divided differently from the reference version: for example, the features in one file and the target in another.
 
-## Pipeline implications
+## Pipeline implication examples
 
 The parts have to be joined to rebuild the dataset. If rows cannot be aligned reliably (no common key, different order), features and target may be mismatched.
 

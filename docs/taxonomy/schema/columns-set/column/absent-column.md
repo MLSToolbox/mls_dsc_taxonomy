@@ -1,15 +1,13 @@
-# Extra column
+# Absent column
 
-## What changes
+A column that is present in the reference version is not present in this one.
 
-The dataset contains a column that is not present in the reference version. Extra columns may contain completely new data or just data derived from existing ones.
+## Pipeline implication examples
 
-## Pipeline implications
-
-Modifies the input data available to the pipeline. Automatic feature selection mechanisms may be affected by the new attribute.
+The pipeline fails if the absent column is **explicitly required**, for example as a feature, as the target, or in a preprocessing step.
 
 ## Typical adaptation
 
-Incorporate the new attribute into the pipeline when it is relevant, or adjust feature selection steps so that it is handled (or deliberately ignored).
+Modify feature engineering steps, model inputs or retraining procedures, or replace the dataset if the column is essential.
 
-See also: [Absent column](absent-column.md).
+See also: [Extra column](extra-column.md).

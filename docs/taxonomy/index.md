@@ -2,7 +2,7 @@
 
 The taxonomy characterises the **differences between versions of a tabular dataset** that may affect the ML pipelines that use it. It is organised im the following four **Dimensions**:
 
-- **Metadata**: information that describes the dataset as a whole. It is documented as a [single page](associated-metadata.md).
+- **Metadata**: information that describes the dataset as a whole. 
 - **Schema**: which columns exist and what characteristics they have.
 - **Instances**: which rows are included and which values they hold.
 - **Storage**: how the data are physically stored.

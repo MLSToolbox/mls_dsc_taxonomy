@@ -1,10 +1,8 @@
 # Columns order
 
-## What changes
-
 The columns appear in a different sequence, while the set of columns and their content stay the same.
 
-## Pipeline implications
+## Pipeline implication examples
 
 Pipelines that access columns **by position** may select the wrong features or fail. Pipelines that access columns by name are unaffected.
 

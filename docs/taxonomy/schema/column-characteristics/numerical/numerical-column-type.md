@@ -1,10 +1,8 @@
 # Numerical column type
 
-## What changes
-
 The data type of a numerical column changes, for example converting real-valued numbers into integers.
 
-## Pipeline implications
+## Pipeline implication examples
 
 Preprocessing and models may depend on the numeric representation (precision, integer vs. real semantics).
 
