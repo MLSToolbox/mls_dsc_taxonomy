@@ -10,7 +10,7 @@ The taxonomy was developed following an inductive, iterative process (Kundisch e
 
 ## How to cite { #how-to-cite }
 
-Please cite the paper above. If you reference this website or its data files, use the repository metadata in [`CITATION.cff`](https://github.com/GITHUB_USER/dataset-changes-taxonomy/blob/main/CITATION.cff) (GitHub shows a *Cite this repository* button).
+Please cite the paper above. If you reference this website or its data files, use the repository metadata in [`CITATION.cff`](https://github.com/MLSToolbox/mls_dsd_taxonomy/blob/main/CITATION.cff) (GitHub shows a *Cite this repository* button).
 
 ## Authors
 
@@ -22,7 +22,7 @@ Part of the [MLEvol project](https://mlevol.upc.edu/en), supported by project PI
 
 ## Contribute
 
-Suggestions for new categories or corrections are welcome through [GitHub Issues](https://github.com/GITHUB_USER/dataset-changes-taxonomy/issues). Further validation on other datasets and repositories is part of the planned future work.
+Suggestions for new categories or corrections are welcome through [GitHub Issues](https://github.com/MLSToolbox/mls_dsd_taxonomy/issues). Further validation on other datasets and repositories is part of the planned future work.
 
 ## License
 

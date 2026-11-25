@@ -22,7 +22,7 @@ authors:
 doi: "10.1007/978-3-032-45954-1_32"
 date-released: "2027-01-01"   # TODO: adjust to the actual publication date
 collection-title: "Product-Focused Software Process Improvement (PROFES 2026), LNCS 17339"
-repository-code: "https://github.com/GITHUB_USER/dataset-changes-taxonomy"
+repository-code: "https://github.com/MLSToolbox/mls_dsd_taxonomy"
 license: CC-BY-4.0
 keywords:
   - dataset changes

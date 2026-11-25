@@ -39,7 +39,7 @@ zensical serve          # http://localhost:8000
 1. Replace every `GITHUB_USER` with your user/organisation (`zensical.toml`, `CITATION.cff`, `docs/`).
 2. Push to the `main` branch.
 3. In the repository go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
-4. The workflow publishes the site at `https://GITHUB_USER.github.io/dataset-changes-taxonomy/`.
+4. The workflow publishes the site at `https://mlstoolbox.github.io/mls_dsd_taxonomy/`.
 
 ## Evolving the taxonomy
 

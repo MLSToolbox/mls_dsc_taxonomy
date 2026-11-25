@@ -1,5 +1,5 @@
 [project]
-site_name = "Taxonomy of Dataset Changes for ML Pipeline Evolution"
+site_name = "Dataset Differences Taxonomy for ML Pipeline Evolution"
 site_description = "A taxonomy of tabular dataset changes and their implications for ML pipeline evolution."
 site_author = "Abelló, Gómez, López, Ayala"
 # TODO: replace GITHUB_USER / REPO with your GitHub user (or organisation) and repository name

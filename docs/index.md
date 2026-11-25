@@ -1,4 +1,4 @@
-# Taxonomy of Dataset Differences for ML Pipeline Evolution
+# Dataset Differences Taxonomy for ML Pipeline Evolution
 
 A catalogue of the **differences that tabular datasets undergo across versions** and of their **potential implications for the evolution of Machine Learning (ML) pipelines** that reuse them.
 
@@ -29,4 +29,4 @@ As ML repositories such as Hugging Face grow, datasets are republished, forked a
 
 ## Machine-readable data
 
-The taxonomy is available as YAML for reuse: [`data/taxonomy.yaml`](https://github.com/GITHUB_USER/dataset-changes-taxonomy/blob/main/data/taxonomy.yaml).
+The taxonomy is available as YAML for reuse: [`data/taxonomy.yaml`](https://github.com/MLSToolbox/mls_dsd_taxonomy/blob/main/data/taxonomy.yaml).
