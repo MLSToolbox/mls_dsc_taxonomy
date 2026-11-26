@@ -16,6 +16,7 @@ Dimensions are divided into **categories** (for example *Columns set*), that can
 flowchart LR
     root(["Dataset differences"])
     n0["Metadata"]
+    click n0 "metadata/metadata.md
     root --> n0
     n1["Associated metadata"]
     n0 --> n1
