@@ -13,12 +13,8 @@ taxonomy:
     name: Related information
     page: taxonomy/related-information/index.md
     children:
-      - key: external-information
-        name: External-related information
-        page: taxonomy/related-information/external-information.md
-      - key: internal-information
-        name: Internal-related information
-        page: taxonomy/related-information/internal-information.md
+      - {key: external-information, name: External-related information, page: taxonomy/related-information/external-information.md }
+      - {key: internal-information, name: Internal-related information, page: taxonomy/related-information/internal-information.md }
 
   - key: schema
     name: Schema
