@@ -148,7 +148,7 @@ def generate():
             continue
         loc = " › ".join(f"[{a['name']}]({rel(a['page'], INDEX)})" for a in page_ancestors(parents)) or "—"
         rows.append(f"| [{n['name']}]({rel(n['page'], INDEX)}) | {loc} |")
-    replace_block(INDEX, "index", "\n".join(rows))
+#    replace_block(INDEX, "index", "\n".join(rows))
 
     # --- non-leaf pages: list of contents ----------------------------------------------
     for n, parents in walk(tax):
