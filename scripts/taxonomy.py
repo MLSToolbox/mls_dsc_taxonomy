@@ -41,11 +41,20 @@ def page_ancestors(parents):
     """Ancestors that have a page of their own (groupings are skipped)."""
     return [p for p in parents if p.get("page")]
 
-
 def rel(page, from_page):
     """Relative link from one docs page to another."""
     return Path(os.path.relpath(DOCS / page, (DOCS / from_page).parent)).as_posix()
 
+def site_url(page, from_page):
+    """Relative URL of `page` as served by the built site (directory URLs, no .md).
+
+    Mermaid `click` URLs are not rewritten by the Markdown processor, so they must be
+    written in their final form: schema/columns-set/index.md -> schema/columns-set/
+    """
+    r = rel(page, from_page)
+    if r == "index.md" or r.endswith("/index.md"):
+        return r[: -len("index.md")]
+    return r[: -len(".md")] + "/"
 
 def replace_block(page, name, content):
     path = DOCS / page
@@ -127,10 +136,13 @@ def generate():
         ids[n["key"]] = f"n{i}"
         lines.append(f'    n{i}["{n["name"]}"]')
         lines.append(f"    {ids[parents[-1]['key']] if parents else 'root'} --> n{i}")
+    for n, _ in walk(tax):                       # clickable nodes: those with a page
+        if n.get("page"):
+            lines.append(f'    click {ids[n["key"]]} "{site_url(n["page"], INDEX)}" "{n["name"]}"')
     lines.append("```")
     replace_block(INDEX, "tree", "\n".join(lines))
 
-    rows = ["| Change type | Location |", "|---|---|"]
+    rows = ["| Difference category | Location |", "|---|---|"]
     for n, parents in walk(tax):
         if n.get("children"):
             continue

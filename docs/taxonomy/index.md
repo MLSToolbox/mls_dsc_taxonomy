@@ -16,6 +16,7 @@ Dimensions are divided into **categories** (for example *Columns set*), that can
 flowchart LR
     root(["Dataset differences"])
     n0["Related information"]
+    click n0 "related-information/" "Related information"
     root --> n0
     n1["External-related information"]
     n0 --> n1
