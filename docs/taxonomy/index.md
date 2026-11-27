@@ -16,7 +16,6 @@ Dimensions are divided into **categories** (for example *Columns set*), that can
 flowchart LR
     root(["Dataset differences"])
     n0["Related information"]
-    click n0 "related-information/" "Related information"
     root --> n0
     n1["External-related information"]
     n0 --> n1
@@ -83,38 +82,7 @@ flowchart LR
     n31["Vertical"]
     n29 --> n31
 ```
-
-
 <!-- END GENERATED:tree -->
-
-## Index of change types
-
-<!-- BEGIN GENERATED:index -->
-
-| Difference type | Location |
-|---|---|
-| [External-related information](related-information/external-information.md) | (related-information/index.md) |
-| [Internal-related information](related-information/internal-information.md) | (related-information/index.md) |
-| [Columns order](schema/columns-set/columns-order.md) | [Schema](schema/index.md) › [Columns set](schema/columns-set/index.md) |
-| [Extra column](schema/columns-set/column/extra-column.md) | [Schema](schema/index.md) › [Columns set](schema/columns-set/index.md) |
-| [Absent column](schema/columns-set/column/absent-column.md) | [Schema](schema/index.md) › [Columns set](schema/columns-set/index.md) |
-| [Rename column](schema/columns-set/column/rename-column.md) | [Schema](schema/index.md) › [Columns set](schema/columns-set/index.md) |
-| [Categorical column type](schema/column-characteristics/categorical/categorical-column-type.md) | [Schema](schema/index.md) › [Column characteristics](schema/column-characteristics/index.md) |
-| [Categorical column values](schema/column-characteristics/categorical/categorical-column-values.md) | [Schema](schema/index.md) › [Column characteristics](schema/column-characteristics/index.md) |
-| [Numerical column type](schema/column-characteristics/numerical/numerical-column-type.md) | [Schema](schema/index.md) › [Column characteristics](schema/column-characteristics/index.md) |
-| [Numerical column values](schema/column-characteristics/numerical/numerical-column-values.md) | [Schema](schema/index.md) › [Column characteristics](schema/column-characteristics/index.md) |
-| [Numerical column format](schema/column-characteristics/numerical/numerical-column-format.md) | [Schema](schema/index.md) › [Column characteristics](schema/column-characteristics/index.md) |
-| [Rows order](instances/rows-set/rows-order.md) | [Instances](instances/index.md) › [Rows set](instances/rows-set/index.md) |
-| [Extra row](instances/rows-set/row/extra-row.md) | [Instances](instances/index.md) › [Rows set](instances/rows-set/index.md) |
-| [Absent row](instances/rows-set/row/absent-row.md) | [Instances](instances/index.md) › [Rows set](instances/rows-set/index.md) |
-| [Extra missing](instances/data-value/extra-missing.md) | [Instances](instances/index.md) › [Data value](instances/data-value/index.md) |
-| [Absent missing](instances/data-value/absent-missing.md) | [Instances](instances/index.md) › [Data value](instances/data-value/index.md) |
-| [Value update not involving missing](instances/data-value/value-update.md) | [Instances](instances/index.md) › [Data value](instances/data-value/index.md) |
-| [Format](storage/format.md) | [Storage](storage/index.md) |
-| [Horizontal](storage/fragmentation/horizontal.md) | [Storage](storage/index.md) › [Fragmentation](storage/fragmentation/index.md) |
-| [Vertical](storage/fragmentation/vertical.md) | [Storage](storage/index.md) › [Fragmentation](storage/fragmentation/index.md) |
-
-<!-- END GENERATED:index -->
 
 ## How each page is organised
 

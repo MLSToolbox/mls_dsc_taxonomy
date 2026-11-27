@@ -19,7 +19,7 @@ As ML repositories such as Hugging Face grow, datasets are republished, forked a
 
 | Part of the taxonomy | Typical question it answers |
 |---|---|
-| [Metadata](taxonomy/metadata/index.md) | Can I still use this dataset (license, source, language, split…)? |
+| [Related information](taxonomy/related-information/index.md) | Can I still use this dataset (license, source, language, split…)? |
 | [Schema](taxonomy/schema/index.md) | Which columns exist, and what type, values and format do they have? |
 | [Instances](taxonomy/instances/index.md) | Which rows are included, and which values do they hold? |
 | [Storage](taxonomy/storage/index.md) | In which format are the data stored, and how are they split into files? |
