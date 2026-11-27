@@ -9,13 +9,16 @@
 #   python scripts/taxonomy.py generate && python scripts/taxonomy.py check
 root: Dataset differences
 taxonomy:
-  - key: metadata
-    name: Metadata
-    page: taxonomy/metadata/index.md
+  - key: related-information
+    name: Related information
+    page: taxonomy/related-information/index.md
     children:
-      - key: associated-metadata
-        name: Associated metadata
-        page: taxonomy/metadata/associated-metadata.md   # closed: documented as a single page
+      - key: external-information
+        name: External-related information
+        page: taxonomy/related-information/external-information.md
+      - key: internal-information
+        name: Internal-related information
+        page: taxonomy/related-information/internal-information.md
 
   - key: schema
     name: Schema

@@ -15,11 +15,12 @@ Dimensions are divided into **categories** (for example *Columns set*), that can
 ```mermaid
 flowchart LR
     root(["Dataset differences"])
-    n0["Metadata"]
-    click n0 "metadata/metadata.md
+    n0["Related information"]
     root --> n0
-    n1["Associated metadata"]
+    n1["External-related information"]
     n0 --> n1
+    n32["Internal-related information"]
+    n0 --> n32
     n2["Schema"]
     root --> n2
     n3["Columns set"]
@@ -91,7 +92,8 @@ flowchart LR
 
 | Difference type | Location |
 |---|---|
-| [Metadata](metadata/metadata.md) | (metadata/index.md) |
+| [External-related information](related-information/external-information.md) | (related-information/index.md) |
+| [Internal-related information](related-information/internal-information.md) | (related-information/index.md) |
 | [Columns order](schema/columns-set/columns-order.md) | [Schema](schema/index.md) › [Columns set](schema/columns-set/index.md) |
 | [Extra column](schema/columns-set/column/extra-column.md) | [Schema](schema/index.md) › [Columns set](schema/columns-set/index.md) |
 | [Absent column](schema/columns-set/column/absent-column.md) | [Schema](schema/index.md) › [Columns set](schema/columns-set/index.md) |

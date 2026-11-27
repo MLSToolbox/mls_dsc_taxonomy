@@ -4,7 +4,7 @@ Differences in the **structure** of the dataset: which columns exist and which c
 
 They mainly affect the pipeline components that ingest and preprocess the data, build features and define the inputs of the model.
 
-## Categories and change types
+## Categories
 
 <!-- BEGIN GENERATED:types -->
 
